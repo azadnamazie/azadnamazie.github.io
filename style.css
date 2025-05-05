@@ -1,0 +1,30 @@
+h1 {
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    background-color: white;
+    border: 10px solid black;
+    padding: 40px;
+}
+
+
+h2 {
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    margin-left: 50px;
+}
+
+
+h5 {
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    margin-left: 75px;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+    margin-left: 75px;
+    border: 10px solid black;
+    padding: 30px;
+    background-color: white;
+}
