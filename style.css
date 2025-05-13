@@ -13,6 +13,19 @@ h2 {
     margin-left: 50px;
 }
 
+.nav {
+    background-color: transparent; 
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 3px;
+  }
 
 img {
     width: 25%;
