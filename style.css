@@ -10,7 +10,7 @@ h1 {
 h2 {
     color: black;
     font-family:'Times New Roman', Times, serif;
-    margin-left: 50px;
+    text-align: center;
 }
 
 .nav {
@@ -27,14 +27,8 @@ h2 {
     padding: 3px;
   }
 
-img {
-    width: 25%;
-    height: 25%;
-    margin-left: 75px;
-}
-
 h5 {
     color: black;
     font-family:'Times New Roman', Times, serif;
-    margin-left: 75px;
+    text-align: center;
 }
