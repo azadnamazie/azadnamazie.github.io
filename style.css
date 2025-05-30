@@ -3,8 +3,8 @@ h1 {
     font-family:'Times New Roman', Times, serif;
     background-image: url("cool_til.gif");
     padding: 40px;
-    border-style: outset;
     max-width: 750px;
+    border-style: outset;
 }
 
 
@@ -67,6 +67,15 @@ a:hover {
 
 a:active {
     color: maroon;
+  }
+
+.div1 {
+    opacity: 1;
+    max-width: 820px;
+    border-style: outset;
+    padding: 2px;
+    margin: auto;
+    position: relative;
   }
 
 .formatted-list {
