@@ -1,7 +1,7 @@
 h1 {
     color: black;
     font-family: 'Inconsolata', monospace;
-    background-image: url("white.png");
+    background-image: url("white.gif");
     padding: 40px;
     max-width: 750px;
     border-style: outset;
@@ -11,7 +11,7 @@ h1 {
 h2 {
     color: black;
     font-family: 'Inconsolata', monospace;
-    background-image: url("white.png");
+    background-image: url("white.gif");
     font-size: 30px;
     padding: 10px;
     max-width: 810px;
@@ -95,6 +95,7 @@ html, body {
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: top left;
+  background-image: url("yuh.jpg");
   background-color: grey;
 }
 
