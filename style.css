@@ -71,7 +71,7 @@ a:active {
 
 .div1 {
     opacity: 1;
-    max-width: 820px;
+    max-width: 80px;
     border-style: outset;
     padding: 2px;
     margin: auto;
@@ -92,5 +92,8 @@ a:active {
   }
 
   body {
-    background-image: url("chalk.jpg");
+    background-image: url("flowers.jpg");
+    background-repeat: no-repeat;
   }
+
+  
