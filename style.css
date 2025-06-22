@@ -1,7 +1,7 @@
 h1 {
     color: black;
-    font-family:'Times New Roman', Times, serif;
-    background-image: url("cool_til.gif");
+    font-family: 'Inconsolata', monospace;
+    background-image: url("white.png");
     padding: 40px;
     max-width: 750px;
     border-style: outset;
@@ -10,8 +10,8 @@ h1 {
 
 h2 {
     color: black;
-    font-family:'Times New Roman', Times, serif;
-    background-image: url("cool_til.gif");
+    font-family: 'Inconsolata', monospace;
+    background-image: url("white.png");
     font-size: 30px;
     padding: 10px;
     max-width: 810px;
@@ -21,19 +21,19 @@ h2 {
 
 h3 {
     color: black;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Inconsolata', monospace;
     text-align: center;
     max-width: 650px;
 }
 h5 {
     color: black;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Inconsolata', monospace;
     text-align: center;
 }
 
 p {
     color: black;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Inconsolata', monospace;
     text-align: center;
     max-width: 800px;
     border-color: black;
@@ -48,25 +48,26 @@ p {
   
 .nav li {
     display: inline-block;
+    font-family: 'Inconsolata', monospace;
     font-size: 20px;
     padding: 3px;
-    color: seagreen;
-  }
-
-a:link {
-    color: seagreen;
-  }
-
-a:visited {
-    color: seagreen;
-  }
-
-a:hover {
     color: black;
   }
 
+a:link {
+    color: black;
+  }
+
+a:visited {
+    color: black;
+  }
+
+a:hover {
+    color: blue;
+  }
+
 a:active {
-    color: maroon;
+    color: red;
   }
 
 .div1 {
@@ -77,6 +78,25 @@ a:active {
     margin: auto;
     position: relative;
   }
+
+#page-wrapper {
+  border: 5px double black;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  min-height: 680px;
+  background-color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: top left;
+  background-color: grey;
+}
 
 .formatted-list {
     list-style-position: inside;
@@ -90,5 +110,7 @@ a:active {
 .formatted-list li {
     display: list-item;
   }
+
+
 
   
