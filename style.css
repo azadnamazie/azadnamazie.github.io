@@ -71,7 +71,7 @@ a:active {
 
 .div1 {
     opacity: 1;
-    max-width: 80px;
+    max-width: 800px;
     border-style: outset;
     padding: 2px;
     margin: auto;
@@ -89,11 +89,6 @@ a:active {
   
 .formatted-list li {
     display: list-item;
-  }
-
-  body {
-    background-image: url("flowers.jpg");
-    background-repeat: no-repeat;
   }
 
   
