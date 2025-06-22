@@ -55,11 +55,11 @@ p {
   }
 
 a:link {
-    color: black;
+    color: blue;
   }
 
 a:visited {
-    color: black;
+    color: seagreen;
   }
 
 a:hover {
