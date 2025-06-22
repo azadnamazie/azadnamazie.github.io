@@ -51,7 +51,7 @@ p {
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
     padding: 3px;
-    color: black;
+    color: blue;
   }
 
 a:link {
@@ -67,7 +67,7 @@ a:hover {
   }
 
 a:active {
-    color: red;
+    color: blue;
   }
 
 .div1 {
@@ -105,6 +105,7 @@ html, body {
     margin: 0 auto;
     display: table;
     width: fit-content;
+    font-family: 'Inconsolata', monospace;
   }
   
 .formatted-list li {
