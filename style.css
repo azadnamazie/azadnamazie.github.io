@@ -51,7 +51,7 @@ p {
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
     padding: 3px;
-    color: blue;
+    color: white;
   }
 
 a:link {
@@ -63,7 +63,7 @@ a:visited {
   }
 
 a:hover {
-    color: blue;
+    font-style: italic;
   }
 
 a:active {
