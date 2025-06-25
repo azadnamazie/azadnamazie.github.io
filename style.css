@@ -76,7 +76,9 @@ a:active {
     border-style: outset;
     padding: 2px;
     margin: auto;
+    font-family: 'Inconsolata', monospace;
     position: relative;
+    
   }
 
 #page-wrapper {
