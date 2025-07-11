@@ -110,6 +110,19 @@ html, body {
     width: fit-content;
     font-family: 'Inconsolata', monospace;
   }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 20px;
+    vertical-align: top;
+    word-break: break-word;
+  }
   
 .formatted-list li {
     display: list-item;
@@ -118,12 +131,45 @@ html, body {
 td img {
     max-width: 100%;
     height: auto;
+    display: block;
   }
   
   img {
     display: block;
     object-fit: contain;
   }
+
+  @media (max-width: 600px) {
+    #page-wrapper, .div1 {
+      padding: 10px;
+    }
+  }
+
+  .gif-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+  }
+  
+  .small-icon {
+    width: 2.5%;
+    height: auto;
+  }
+  
+  .center-icon {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .list-container {
+    max-width: 810px;
+    margin: 0 auto;
+    padding-left: 20px;
+  }
+
+
 
 
   
