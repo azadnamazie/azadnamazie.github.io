@@ -5,6 +5,7 @@ h1 {
     padding: 40px;
     max-width: 750px;
     border-style: outset;
+    text-align: center;
 }
 
 
@@ -80,6 +81,15 @@ a:active {
     position: relative;
     
   }
+  .div2 {
+    opacity: 1;
+    max-width: 700px;
+    padding: 1px;
+    margin: auto;
+    font-family: 'Inconsolata', monospace;
+    position: relative;
+    
+  }
 
 #page-wrapper {
   border: 5px double black;
@@ -101,15 +111,6 @@ html, body {
   background-color: grey;
 }
 
-.formatted-list {
-    list-style-position: inside;
-    list-style-type: square;
-    color: black;
-    margin: 0 auto;
-    display: table;
-    width: fit-content;
-    font-family: 'Inconsolata', monospace;
-  }
 
   table {
     width: 100%;
@@ -124,8 +125,24 @@ html, body {
     word-break: break-word;
   }
   
+  .formatted-list {
+    list-style-position: inside;
+    list-style-type: square;
+    color: black;
+    margin: 0;
+    padding-left: 20px;
+    display: block;
+    width: 100%;
+    font-family: 'Inconsolata', monospace;
+}
 .formatted-list li {
     display: list-item;
+  }
+
+  .list-container {
+    max-width: 810px;
+    margin: 0;
+    padding-left: 30px;
   }
 
 td img {
@@ -139,37 +156,31 @@ td img {
     object-fit: contain;
   }
 
-  @media (max-width: 600px) {
-    #page-wrapper, .div1 {
-      padding: 10px;
-    }
+@media (max-width: 600px) {
+  table,
+  tr,
+  td {
+    display: block;
+    width: 100%;
   }
 
-  .gif-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 10px auto;
-  }
-  
-  .small-icon {
-    width: 2.5%;
-    height: auto;
-  }
-  
-  .center-icon {
-    width: auto;
-    max-width: 100%;
-  }
-
-  .list-container {
-    max-width: 810px;
+  td img {
     margin: 0 auto;
-    padding-left: 20px;
   }
 
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
 
+  td:nth-child(1) {
+    order: 1;
+  }
+
+  td:nth-child(2) {
+    order: 2;
+  }
+}
 
 
   
