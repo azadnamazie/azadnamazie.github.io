@@ -126,7 +126,7 @@ html, body {
   }
   
   .formatted-list {
-    list-style-position: inside;
+    list-style-position: outside;
     list-style-type: square;
     color: black;
     margin: 0;
@@ -135,6 +135,7 @@ html, body {
     width: 100%;
     font-family: 'Inconsolata', monospace;
 }
+
 .formatted-list li {
     display: list-item;
   }
