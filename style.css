@@ -56,19 +56,20 @@ p {
   }
 
 a:link {
-    color: blue;
+    color: black;
   }
 
 a:visited {
-    color: blue;
+    color: black;
   }
 
 a:hover {
     font-style: italic;
+    color: green;
   }
 
 a:active {
-    color: blue;
+    color: black;
   }
 
 .div1 {
@@ -108,7 +109,7 @@ html, body {
   background-attachment: fixed;
   background-position: top left;
   background-image: url("background.gif");
-  background-color: grey;
+  background-color: white;
 }
 
 
