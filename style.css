@@ -1,3 +1,17 @@
+@media screen and (max-width: 481px){
+.header {
+width: 100%;
+height: auto;
+}
+
+.rose{
+width: 100%;
+height: auto;
+
+}
+
+}
+
 h1 {
     color: black;
     font-family: 'Luminaria', fantasy;
