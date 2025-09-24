@@ -1,16 +1,4 @@
-@media screen and (max-width: 481px){
-#header {
-width: 100%;
-height: auto;
-}
 
-#center-icon {
-width: 100%;
-height: auto;
-
-}
-
-}
 
 #header {
 width: 40%;
@@ -113,6 +101,16 @@ a:active {
     position: relative;
     
   }
+
+
+.div3 {
+  opacity: 1;
+  border: 2px double black;
+  max-width: 950px;
+  padding: 1px;
+  margin: auto;
+  font-family: 'Inconsolata', monospace;  
+}
 
 #page-wrapper {
   border: 5px double black;
