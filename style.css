@@ -179,6 +179,11 @@ html, body {
 
 
 @media (max-width: 600px) {
+
+  .nav li {
+    font-size: 20px;
+  }
+
   table,
   tr,
   td {
