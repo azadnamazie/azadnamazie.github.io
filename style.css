@@ -201,6 +201,12 @@ td img {
     width: 100%;
   }
 
+  .responsive_iframe {
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+
   tr {
     display: flex;
     flex-direction: column;
