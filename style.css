@@ -1,4 +1,7 @@
 
+body {
+  cursor: crosshair;
+}
 h1 {
     color: white;
     background-color: black;
@@ -127,7 +130,10 @@ html, body {
   color: white;
 }
 
-
+figure {
+  display: block;
+  object-fit: contain;
+}
   table {
     width: 100%;
     table-layout: fixed;
@@ -171,6 +177,7 @@ html, body {
     max-width: 100%;
     height: auto;
   }
+
   .responsive_iframe {
     width: 100%;
     border: 0px;
@@ -213,7 +220,7 @@ img {vertical-align: middle;}
 /* On hover, add a grey background color */
 .prev:hover, .next:hover {
   background-color: #f1f1f1;
-  color: black;
+  color: #953553;
 }
 
 
