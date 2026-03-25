@@ -1,49 +1,400 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>azad namazie</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/gif" href="disc.gif">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>azad namazie — about</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/gif" href="disc.gif">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------------------------------------------------
+   GLOBAL VARIABLES
+--------------------------------------------------- */
+:root {
+    --glow-magenta: #ba66d4;
+    --glow-cyan: #00ffff;
+    --mono: 'Inconsolata', monospace;
+    --script: 'Pinyon Script', cursive;
+    --panel-bg: silver;
+    --panel-border: white;
+}
+
+/* ---------------------------------------------------
+   BASE
+--------------------------------------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: url('icon.png'),auto;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: var(--mono);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--glow-cyan);
+    font-style: italic;
+}
+
+/* ---------------------------------------------------
+   MENU BAR 
+--------------------------------------------------- */
+.site-header {
+    padding: 20px 0 0 20px;
+}
+
+.nav-shell {
+    display: inline-block;
+}
+
+.nav-window {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    padding: 10px 18px;
+    position: relative;
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px #dfdfdf,
+        inset -2px -2px grey,
+        inset 2px 2px #fff;
+    filter: drop-shadow(5px 5px 10px #222);
+}
+
+.corner {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: transparent;
+    border: 1px solid var(--panel-border);
+}
+
+.c1 { top: -5px; left: -5px; }
+.c2 { top: -5px; right: -5px; }
+.c3 { bottom: -5px; left: -5px; }
+.c4 { bottom: -5px; right: -5px; }
+
+.main-nav a {
+    margin-right: 18px;
+    opacity: 0.6;
+    color: black;
+}
+
+.main-nav a:last-child {
+    margin-right: 0;
+}
+
+.main-nav a:hover,
+.main-nav a.is-current {
+    opacity: 1;
+    font-style: italic;
+    text-shadow:
+        0 0 15px var(--glow-magenta),
+        0 0 15px var(--glow-cyan);
+}
+
+/* ---------------------------------------------------
+   ABOUT PAGE LAYOUT 
+--------------------------------------------------- */
+.about-wrapper {
+    padding: 0 7vw 12vh 7vw;
+    margin-top: 40px;
+    display: grid;
+    row-gap: 40px;
+}
+
+.about-top {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    column-gap: 60px;
+    align-items: start;
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 260px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.about-text-block {
+    max-width: 650px;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+/* ---------------------------------------------------
+   CV GRID 
+--------------------------------------------------- */
+.cv-section {
+    display: grid;
+    row-gap: 14px;
+}
+
+.cv-row {
+    display: grid;
+    grid-template-columns: 120px minmax(240px, 1fr) minmax(240px, 1fr) 100px;
+    column-gap: 32px;
+    font-size: 13.5px;
+    line-height: 1.65;
+}
+
+.cv-label {
+    opacity: 0.6;
+}
+
+.cv-year {
+    text-align: right;
+    opacity: 0.6;
+}
+
+.cv-span {
+    grid-column: 2 / 5;
+}
+
+.section-start {
+    margin-top: 20px;
+}
+</style>
 </head>
+
 <body>
-<div id="page-wrapper">
-<center>
-  <br>
-  <a href="https://azadnamazie.github.io/"><img class="name" src="name.png" width="40%"></a>
-  <br>
-  <br>
-    <ul class="nav">
-      <li>[<a href="/">home</a>]</li>✦
-      <li>[<a href="./publications.html">publications</a>]</li>✦
-      <li>[<a href="./performance.html">performance</a>]</li>✦
-      <li>[<a href="./projects.html">archives</a>]</li>✦
-      <li>[<a href="./about.html" class="current">about</a>]</li> 
-    </ul>
-    <br><br>
-    <p><strong>Azad Namazie (they/he) is a poet, performance artist, and digital archivist from Los Angeles, CA.</strong> Their artistic practice spans browser-based performances, hypertextual poetry, and time-based media works, interfacing with fantasies of sovereignty, decay, and intimacy in the shadow of empire. Through these forms, their work reflects on the slippages and contradictions between memory, technology, and spirituality.</p>
-    <p>They have processed, preserved, and made accessible audiovisual and born-digital collections at community archives and academic institutions including the Skid Row History Museum & Archive, the Los Angeles County Museum of Art, Viet Rainbow of Orange County, UCLA Center for Oral History Research, and UCLA Digital Library Program. They currently serve as the digital archivist at UCLA Library Special Collections.</p>
-    <img src="me.gif" width="40%">
-    <br>
-    <p><em>This website was hand-coded in html/css and has no tracking or analytics.</em></p>
-    ✦
-    <div class="div2">
-      <p>I am open to collaborations!</p>
-      <table>
-      <td>
-      <ul class="formatted-list">
-        <li><strong>Writing and dramaturgy for the stage</strong></li>
-        <li><strong>Performance and workshop engagements</strong></li>
-        <li><strong>Archival consulting for artists and community-based organizations</strong> (services include metadata modeling, audiovisual digitization, oral history project implementation, and digital preservation planning)</li>
-      </ul>
-      </td>
-      </table>
-      <p>You can contact me at <a href="mailto:anamazie@proton.me">anamazie@proton.me</a></p>
-      <br>
-      </div> 
-    <br>
-    <a href="https://azadnamazie.github.io/"><img src="home.gif"></a>
-</center>
-</div>
+
+<!-- MENU BAR -->
+<header class="site-header">
+    <div class="nav-shell">
+        <div class="nav-window">
+            <span class="corner c1"></span>
+            <span class="corner c2"></span>
+            <span class="corner c3"></span>
+            <span class="corner c4"></span>
+
+            <nav class="main-nav">
+                <a href="index.html">home</a>
+                <a href="projects.html">projects</a>
+                <a href="about.html" class="is-current">about</a>
+                <a href="contact.html">contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- SPACING BELOW NAV -->
+<div style="height: 80px;"></div>
+
+<!-- ABOUT PAGE CONTENT -->
+<main class="about-wrapper">
+
+    <!-- TOP SECTION: BIO + PHOTO -->
+    <section class="about-top">
+        <div class="about-text-block">
+            <div class="cv-row">
+                <div class="cv-label">about</div>
+                <div class="cv-span">
+                    <p>Azad Namazie (they/he) is a poet, performance artist, and digital archivist from Los Angeles, CA. Their artistic practice spans browser-based performances, hypertextual poetry, and time-based media works, interfacing with fantasies of sovereignty, decay, and intimacy in the shadow of empire. Through these forms, their work reflects on the slippages and contradictions between memory, technology, and spirituality.</p>
+                    <p>As an archivist, they have processed, preserved, and made accessible audiovisual and born-digital collections at community archives and arts organizations across southern California.</p>
+                </div>
+            </div>
+        </div>
+
+        <img src="me.gif" alt="portrait" class="about-photo">
+    </section>
+
+    <!-- CV SECTIONS -->
+    <section class="cv-section">
+
+        <div class="cv-row section-start">
+            <div class="cv-label">education</div>
+            <div>master of library and information science</div>
+            <div>university of california, los angeles</div>
+            <div class="cv-year">2022 – 2024</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">experience</div>
+            <div>ucla library special collections</div>
+            <div>digital archivist</div>
+            <div class="cv-year">2025 – present</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>viet rainbow of orange county</div>
+            <div>digital justice seed grant archival consultant</div>
+            <div class="cv-year">2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>skid row history museum & archive</div>
+            <div>andrew w. mellon foundation/ucla community archives lab intern</div>
+            <div class="cv-year">2023 – 2024</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>ucla center for oral history research</div>
+            <div>digital archives assistant</div>
+            <div class="cv-year">2023 – 2024</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>ucla digital library program</div>
+            <div>digital library program assistant</div>
+            <div class="cv-year">2023</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>los angeles county museum of art</div>
+            <div>collection information and digital assets intern</div>
+            <div class="cv-year">2023</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>los angeles public library</div>
+            <div>cybernaut multimedia assistant</div>
+            <div class="cv-year">2022 – 2023</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">residencies</div>
+            <div>first kiss theatre company summer artist residency</div>
+            <div>new york city, ny</div>
+            <div class="cv-year">2025</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">performances</div>
+            <div>ham.mam</div>
+            <div>non plus ultra [los angeles, ca]</div>
+            <div class="cv-year">2026</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div></div>
+            <div>the makers' space [new york city, ny]</div>
+            <div class="cv-year">2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>local prophets</div>
+            <div>joy who lived festival [los angeles, ca]</div>
+            <div class="cv-year">2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>another birth</div>
+            <div>celebration theatre [los angeles, ca]</div>
+            <div class="cv-year">2024</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">publications</div>
+            <div><a href="https://www.foglifterjournal.com/oe-issue-11#softest_technology" target="_blank">the softest technology</a></div>
+            <div>foglifter press [online exclusive issue 1.1]</div>
+            <div class="cv-year">winter 2026</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://infrastructures.us/en/blog/azad/" target="_blank">archival work == death work</a></div>
+            <div>infrastructures.us blog</div>
+            <div class="cv-year">december 2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://thefruitslice.com/issue-6-queer-ecology/" target="_blank">(i'm afraid) the masquerade is over</a></div>
+            <div>fruitslice magazine [queer ecology issue]</div>
+            <div class="cv-year">june 2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://thefruitslice.com/issue-6-queer-ecology/" target="_blank">now my dreams lay dead like a limp cigarette</a></div>
+            <div>fruitslice magazine [queer ecology issue]</div>
+            <div class="cv-year">june 2025</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://www.diglib.org/fellow-reflection-azad-namazie/" target="_blank">fellow reflection: azad namazie</a></div>
+            <div>digital library federation blog</div>
+            <div class="cv-year">december 2023</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://www.diglib.org/fellow-reflection-azad-namazie/" target="_blank">the political task of stewardship</a></div>
+            <div>ucla community archives lab blog</div>
+            <div class="cv-year">december 2023</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://mizna.org/product/mizna-24-1/" target="_blank">post-colonial finding aid for my transancestor</a></div>
+            <div>mizna [myth & memory issue 24.1]</div>
+            <div class="cv-year">summer 2023</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://rustandmoth.com/work/when-the-world-cracks-in-half/" target="_blank">when the world cracks in half</a></div>
+            <div>rust & moth</div>
+            <div class="cv-year">spring 2021</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div><a href="https://aboutplacejournal.org/issues/practices-of-hope/tending-together/yasmeen-namazie/" target="_blank">1,001 middles</a></div>
+            <div>about place journal [issue 4.1]</div>
+            <div class="cv-year">may 2020</div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-label"></div>
+            <div>i am your martyr</div>
+            <div>q/a poetry [issue 11]</div>
+            <div class="cv-year">october 2019</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">speaking</div>
+            <div>dead media chat room</div>
+            <div>wilshire online expo [los angeles, ca]</div>
+            <div class="cv-year">2026</div>
+        </div>
+
+        <div class="cv-row section-start">
+            <div class="cv-label">contact me:</div>
+            <div class="cv-span">
+                <a href="mailto:anamazie@proton.me">anamazie@proton.me</a>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
 </body>
+</html>

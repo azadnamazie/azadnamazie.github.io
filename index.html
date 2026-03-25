@@ -1,40 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>azad namazie</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/gif" href="disc.gif">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-<body>
-  <div id="page-wrapper">
-  <center>
-  <br>
-  <a href="https://azadnamazie.github.io/"><img class="name" src="name.png" width="40%"></a>
-  <br>
-  <br>
-    <ul class="nav">
-      <li>[<a href="/">home</a>]</li>✦
-      <li>[<a href="./publications">publications</a>]</li>✦
-      <li>[<a href="./performance">performance</a>]</li>✦
-      <li>[<a href="./projects">archives</a>]</li>✦
-      <li>[<a href="./about">about</a>]</li> 
-    </ul>
-  <br>
-  <br>
-  <h3>i'm a poet, performance artist, and digital archivist collaborating on multimedia projects that expand our technological imagination</h3>
-  <br><br>
-  ✦  
-  <br><br><p><strong><em>currently + upcoming:</em></strong></p>
-  <p>2026-03-22: httpoetics final showcase @ school for poetic computation (online)</p>
-  <p>2026-03-27: "garmkhaneh: qt diy nowruz/equinox benefit" <a href="https://www.eventbrite.com/e/garmkhaneh-qt-diy-nowruzequinox-benefit-tickets-1984089861185" target="_blank">@ non plus ultra</a></p>
-  <p>digital archivist @ ucla library</p>
-  <br>
-  <br>
-  <br>
-  <a href="https://azadnamazie.github.io/"><img class="home-button" src="home.gif"></a>
-</center>
-</div>
-</body>
 
+<style>
+/* ---------------------------------------------------
+   GLOBAL VARIABLES
+--------------------------------------------------- */
+:root {
+    --glow-magenta: #ba66d4;
+    --glow-cyan: #00ffff;
+    --panel-bg: silver;
+    --panel-border: white;
+    --mono: 'Inconsolata', monospace;
+    --script: 'Pinyon Script', cursive;
+}
+
+/* ---------------------------------------------------
+   BASE
+--------------------------------------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: url('icon.png'),auto;
+    font-family: var(--mono);
+    background: black url('test4.gif') center/cover fixed no-repeat;
+    color: white;
+}
+
+/* ---------------------------------------------------
+   MENU BAR 
+--------------------------------------------------- */
+.site-header {
+    padding: 20px 0 0 20px;
+}
+
+.nav-shell {
+    display: inline-block;
+}
+
+.nav-window {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    padding: 10px 18px;
+    position: relative;
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px #dfdfdf,
+        inset -2px -2px grey,
+        inset 2px 2px #fff;
+    filter: drop-shadow(5px 5px 10px #222);
+}
+
+.corner {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: transparent;
+    border: 1px solid var(--panel-border);
+}
+
+.c1 { top: -5px; left: -5px; }
+.c2 { top: -5px; right: -5px; }
+.c3 { bottom: -5px; left: -5px; }
+.c4 { bottom: -5px; right: -5px; }
+
+.main-nav a {
+    margin-right: 18px;
+    opacity: 0.6;
+    color: black;
+    text-decoration: none;
+}
+
+.main-nav a:last-child {
+    margin-right: 0;
+}
+
+.main-nav a:hover,
+.main-nav a.is-current {
+    opacity: 1;
+    font-style: italic;
+    text-shadow:
+        0 0 15px var(--glow-magenta),
+        0 0 15px var(--glow-cyan);
+}
+
+/* ---------------------------------------------------
+   HOMEPAGE CORNER ELEMENTS
+--------------------------------------------------- */
+.corner-bio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 420px;
+    font-family: var(--script);
+    font-size: 42px;
+    line-height: 1.25;
+    color: white;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        0 0 12px #ff66ff,
+        0 0 12px #00eaff;
+    pointer-events: none;
+    text-align: right;
+}
+
+.corner-events {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    max-width: 260px;
+    background: #cfcfcf;
+    padding: 12px;
+    border: 1px solid white;
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px #ffffff,
+        inset -2px -2px gray,
+        inset 2px 2px #fff,
+        4px 4px 12px rgba(0,0,0,0.4);
+    font-size: 0.9rem;
+    color: black;
+}
+
+.corner-events .events-title {
+    font-family: var(--script);
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.corner-events ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.corner-events li {
+    margin-bottom: 6px;
+}
+
+.corner-events a {
+    color: black;
+    text-decoration: none;
+}
+
+.corner-events a:hover {
+    color: #00eaff;
+    font-style: italic;
+    text-shadow: 0 0 10px #ff66ff;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
+@media (max-width: 700px) {
+    .corner-bio {
+        font-size: 30px;
+        max-width: 70%;
+        
+    }
+    .corner-events {
+        max-width: 60%;
+        font-size: 0.85rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BAR -->
+<header class="site-header">
+    <div class="nav-shell">
+        <div class="nav-window">
+            <span class="corner c1"></span>
+            <span class="corner c2"></span>
+            <span class="corner c3"></span>
+            <span class="corner c4"></span>
+
+            <nav class="main-nav">
+                <a href="index.html" class="is-current">home</a>
+                <a href="projects.html">projects</a>
+                <a href="about.html">about</a>
+                <a href="contact.html">contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- BIO (BOTTOM RIGHT) -->
+<div class="corner-bio">
+    Azad Namazie is a poet, performance artist, and digital archivist.
+</div>
+
+<!-- EVENTS (BOTTOM LEFT) -->
+<div class="corner-events">
+    <div class="events-title"><em><strong>currently + upcoming:</strong></em></div>
+    <ul>
+        <li>
+            ✦ 2026‑03‑27: "garmkhaneh: qt diy nowruz/equinox benefit"
+            <a href="https://www.eventbrite.com/e/garmkhaneh-qt-diy-nowruzequinox-benefit-tickets-1984089861185" target="_blank">
+                @ non plus ultra
+            </a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

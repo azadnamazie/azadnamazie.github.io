@@ -1,69 +1,486 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>azad namazie</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/gif" href="disc.gif">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>azad namazie — projects</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/gif" href="disc.gif">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------------------------------------------------
+   GLOBAL VARIABLES
+--------------------------------------------------- */
+:root {
+    --glow-magenta: #ba66d4;
+    --glow-cyan: #00ffff;
+    --mono: 'Inconsolata', monospace;
+    --script: 'Pinyon Script', cursive;
+    --panel-bg: silver;
+    --panel-border: white;
+}
+
+/* ---------------------------------------------------
+   BASE
+--------------------------------------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: url('icon.png'),auto;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: var(--mono);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--glow-cyan);
+    font-style: italic;
+}
+
+/* ---------------------------------------------------
+   HEADER + NAVIGATION
+--------------------------------------------------- */
+.site-header {
+    padding: 20px 0 0 20px;
+}
+
+.nav-shell {
+    display: inline-block;
+}
+
+.nav-window {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    padding: 10px 18px;
+    position: relative;
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px #dfdfdf,
+        inset -2px -2px grey,
+        inset 2px 2px #fff;
+    filter: drop-shadow(5px 5px 10px #222);
+}
+
+.corner {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: transparent;
+    border: 1px solid var(--panel-border);
+}
+
+.c1 { top: -5px; left: -5px; }
+.c2 { top: -5px; right: -5px; }
+.c3 { bottom: -5px; left: -5px; }
+.c4 { bottom: -5px; right: -5px; }
+
+.main-nav a {
+    margin-right: 18px;
+    opacity: 0.6;
+    color: black;
+}
+
+.main-nav a:last-child {
+    margin-right: 0;
+}
+
+.main-nav a:hover,
+.main-nav a.is-current {
+    opacity: 1;
+    font-style: italic;
+    text-shadow:
+        0 0 15px var(--glow-magenta),
+        0 0 15px var(--glow-cyan);
+}
+
+/* ---------------------------------------------------
+   PORTFOLIO AREA
+--------------------------------------------------- */
+.portfolio-area {
+    padding: 0 6vw 12vh 6vw;
+    margin-top: -20px;
+    font-family: "Inconsolata","monospace";
+}
+
+/* FILTER BUTTONS */
+.category-bar button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 12px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 13px;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: "Inconsolata","monospace";
+
+}
+
+.category-bar button:hover {
+    border-color: transparent;
+    font-style: italic;
+    text-shadow:
+        0 0 10px #fbddf6,
+        0 0 20px #ff00ea,
+        0 0 40px #ff00ea;
+}
+
+.category-bar .is-selected {
+    font-weight: bold;
+    border-color: transparent;
+    text-shadow:
+        0 0 15px #fbddf6,
+        0 0 30px #ff00ea,
+        0 0 60px #ff00ea;
+}
+
+/* ---------------------------------------------------
+   GRID
+--------------------------------------------------- */
+.thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.thumb {
+    position: relative;
+    height: 180px;
+    border: 1px solid #4a4848;
+    overflow: hidden;
+    display: block;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.thumb span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #4a4848;
+    color: black;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.thumb:hover span {
+    opacity: 1;
+}
+
+.thumb:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------------------------------------------------
+   MODAL VIEWER
+--------------------------------------------------- */
+.project-viewer {
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 9999;
+    color: black;
+}
+
+.project-viewer.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.viewer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.viewer-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vh;
+    height: 80vh;
+    max-width: 900px;
+    max-height: 900px;
+    min-width: 320px;
+    transform: translate(-50%, -50%);
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+.viewer-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #4a4848;
+}
+
+.viewer-close:hover {
+    color: black;
+}
+
+.viewer-inner {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.viewer-images {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.viewer-text {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.viewer-title-img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 24px;
+}
+</style>
 </head>
+
 <body>
-<div id="page-wrapper">
-<center>
-  <br>
-  <a href="https://azadnamazie.github.io/"><img class="name" src="name.png" width="40%"></a>
-  <br>
-  <br>
-    <ul class="nav">
-      <li>[<a href="/">home</a>]</li>✦
-      <li>[<a href="./publications.html">publications</a>]</li>✦
-      <li>[<a href="./performance.html">performance</a>]</li>✦
-      <li>[<a href="./projects.html" class="current">archives</a>]</li>✦
-      <li>[<a href="./about.html">about</a>]</li> 
-    </ul>
-    <br>
-    <p>
-    <div class="div3">
-    <br>
-    <br>
-  <table>
-      <tr>
-      <td>
-        <iframe src="https://oc-rainbow-histories.org/queer-and-trans-viet-oral-history-project" alt="VROC Oral History Digital Archive" class="responsive_iframe"></iframe>
-      </td>
-      <td>
-    <a href= "https://oc-rainbow-histories.org/" target="blank"><strong>Viet Rainbow of Orange County (VROC)<br></strong></a><em>(Janury - October 2025)</em>
-    <br>✦ Developed a digital preservation infrastructure for the VROC oral history project to support multilingual access 
-    <br>✦ Managed and normalized digital files to ensure their integrity and long-term accessibility, implemented a metadata schema with the Homosaurus controlled vocabulary, and conducted privacy assessments for 30 oral history interviews. 
-    <br>✦ Created a digital stewardship manual and trained VROC staff members to increase their capacity for ongoing and future maintenance.
-    <br>
-    <br>✦ Front-end web development: Prach Prasertwit <br>✦ Audio/video editor: Devonte Johnson
-    </td>
-    </tr>
-    </table>
-    <br><br>
-    <table>
-      <tr>
-      <td>
-        <img src="skid_row.jpg" alt="A man watches a VHS tape on a viewing station at the Skid Row History Museum & Archive"/>
-      </td>
-      <td>
-    <a href= "https://www.lapovertydept.org/skid-row-history-museum-archive/" target="blank"><strong>Skid Row History Museum & Archive<br></strong></a><em>(September 2023 - June 2024)</em>
-    <br>✦ Digitized and transferred content from 300+ MiniDV, VHS, Betacam tapes, DVD-Rs, and thumb drives using VRecord and ffmpeg
-    <br>✦ Executed checksums and fixity checks (SHA512 and MD5) to ensure authenticity and preservation of archival materials; used BitCurator suite to recover data from failing thumb drives
-    <br>✦ Performed original item-level cataloging/classification of 500+ previously unprocessed born-digital and digitized assets in the content management system (PastPerfect) using DACS
-    <br>
-    <br><em><a href="https://communityarchiveslab.ucla.edu/ucla-community-archives-lab-andrew-w-mellon-foundation-blog/" target="_blank">✦ [Award] Andrew W. Mellon Foundation Community Archives Grant | UCLA Community Archives Lab</em></a>
-    <br><em><a href="https://amiaconference.net/amia-2024-program/" target="_blank">✦ [Panel Presentation] "Developing a National Network of Media Preservation Training Sites" | Association of Moving Image Archivists (AMIA) Conference 2024 </em>
-  </td>
-    </tr>
-    </table>
-  </div>
-    <br>
-    <br>
-    <br>
-  <br>
-    <a href="https://azadnamazie.github.io/"><img src="home.gif" alt="home button"></a>
-  </center>
-  </div>
-  </body>
+
+<header class="site-header">
+    <div class="nav-shell">
+        <div class="nav-window">
+            <span class="corner c1"></span>
+            <span class="corner c2"></span>
+            <span class="corner c3"></span>
+            <span class="corner c4"></span>
+
+            <nav class="main-nav">
+                <a href="index.html">home</a>
+                <a href="projects.html" class="is-current">projects</a>
+                <a href="about.html">about</a>
+                <a href="contact.html">contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div style="height: 80px;"></div>
+
+<main class="portfolio-area">
+
+    <section class="category-bar">
+        <button data-type="all" class="is-selected">all</button>
+        <button data-type="performances">performances</button>
+        <button data-type="hypertext">hypertext</button>
+        <button data-type="playwriting">playwriting</button>
+        <button data-type="archives">archives</button>
+    </section>
+
+    <section class="thumb-grid">
+
+        <a href="#" 
+           class="thumb performances hypertext open-project"
+           data-heading="HAM.MAM"
+           data-heading-img="hammam.png"
+           data-gallery="ham_mam.gif, ham_mam_2.gif"
+           data-info="This hyper-textual live performance reimagines the traditional Iranian bathhouse within the browser window, where the changing room is a chatroom and spiritual ablution is an ambient ritual. The artist navigates the bathhouse by clicking, typing, reciting, and gesturing, transforming their desktop into a site of intimacy without physical proximity. Blending poetry, archival practice, and internet art performance, this piece explores the protocols of the hammam and questions how one might create what Amiri Baraka called a “spiritually‑oriented technology.”
+            <br><br>
+           Presentations:
+           <br>✦ Non Plus Ultra, 2026
+           <br>✦ The Makers' Ensemble Space, 2025">
+            <img src="ham_mam.gif" alt="HAM.MAM">
+            <span>HAM.MAM</span>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=09mnG0_PKoo" 
+           target="_blank" 
+           class="thumb hypertext">
+            <img src="softest-technology.png" alt="the softest technology">
+            <span>The Softest Technology</span>
+        </a>
+
+        <a href="#" 
+           class="thumb performances open-project"
+           data-heading="COPY THAT FLOPPY"
+           data-gallery="copythatfloppy.gif, copythatfloppy2.gif"
+           data-info="<strong><em>COPY THAT FLOPPY: A live lecture-performance</em></strong><br><br>
+           Presented at Dead Media Chat Room, Wilshire Online Expo 2026
+           <br><br>A love letter to dead media, this live lecture-performance weaves together political and technological discourses on the floppy disk as a form of digital storage media that puts data soveriegnty in the hands of the masses.           ">
+            <img src="copythatfloppy.gif" alt="Copy That Floppy">
+            <span>COPY THAT FLOPPY</span>
+        </a>
+
+        <a href="#" 
+           class="thumb archives open-project"
+           data-heading="Queer and Trans Viet Oral History Project"
+           data-gallery="vroc.gif"
+           data-info="<a href='https://oc-rainbow-histories.org/queer-and-trans-viet-oral-history-project'><strong><em>Viet Rainbow of Orange County Oral History Project</em></strong></a><br><br>
+           <br>✦ Developed a digital preservation infrastructure for the VROC oral history project to support multilingual access
+           <br>✦ Managed and normalized digital files to ensure their integrity and long-term accessibility, implemented a metadata schema with the Homosaurus controlled vocabulary, and conducted privacy assessments for 30 oral history interviews.
+           <br>✦ Created a digital stewardship manual and trained VROC staff members to increase their capacity for ongoing and future maintenance.
+           <br><br>
+           <br>✦ Front-end web development: Prach Prasertwit
+           <br>✦ Audio/video editor: Devonte Johnson">
+            <img src="vroc2.png" alt="VROC Project">
+            <span>Queer and Trans Viet Oral History Project</span>
+        </a>
+
+        <a href="#" 
+           class="thumb playwriting open-project"
+           data-heading="LOCAL PROPHETS"
+           data-gallery="local_prophets.jpg"
+           data-info="<strong><em>LOCAL PROPHTS: A Play of Near Collisions</strong></em><br>
+           <br>Presented at the Joy Who Lived Festival 2025
+           <br>McCadden Place Theatre
+           <br>Director: Graham C. King
+           <br>Starring Blaire Battle, Maze Felix, and Ari Fromm
+           <br><br>
+           Two trans friends meet at the Vermont/Beverly bus stop during ungodly hours of the day and collide over the end times.
+           <br><br>
+           ✦ Reviewed on BroadwayWorld LA.">
+            <img src="local_prophets.jpg" alt="Local Prophets">
+            <span>LOCAL PROPHETS</span>
+        </a>
+
+        <a href="#" 
+           class="thumb playwriting open-project"
+           data-heading="Another Birth"
+           data-gallery="another_birth_3.jpg, another_birth_4.jpg, another_birth_5.jpg, another_birth_6.jpg, another_birth_7.jpg"
+           data-info="<strong><em>Another Birth</strong></em><br>
+           <br>Commissioned and produced by Celebration Theatre & Greenway Arts Alliance
+           <br>Director: Nico Pang
+           <br>Starring Gigi (Germain) Arroyo & Vico Ortiz
+           <br>
+           In the afterlife, a writer seeks the aid of an enigmatic jinn to find their long-lost transcestor.
+           <br><br>
+           <br>✦ Nominated for Best New Play by BroadwayWorld LA.
+           <br>✦ Reviewed on BroadwayWorld LA and Beverly Press.
+           ">
+            <img src="another_birth.jpg" alt="Another Birth">
+            <span>Another Birth</span>
+        </a>
+
+    </section>
+</main>
+
+<!-- MODAL -->
+<div id="viewer" class="project-viewer">
+    <div class="viewer-backdrop"></div>
+
+    <div class="viewer-box nav-window">
+        <span class="viewer-close">&times;</span>
+
+        <div class="viewer-inner">
+            <div class="viewer-images"></div>
+
+            <div class="viewer-text">
+                <img id="viewer-title-img" class="viewer-title-img" src="" alt="">
+                <div class="viewer-description"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ---------------- FILTERING ----------------
+const filterBtns = document.querySelectorAll(".category-bar button");
+const cards = document.querySelectorAll(".thumb-grid .thumb");
+
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+
+        const type = btn.dataset.type;
+
+        cards.forEach(card => {
+            const show = type === "all" || card.classList.contains(type);
+            card.style.display = show ? "block" : "none";
+        });
+    });
+});
+
+// ---------------- MODAL LOGIC ----------------
+const modal = document.getElementById("viewer");
+const modalClose = modal.querySelector(".viewer-close");
+const modalBackdrop = modal.querySelector(".viewer-backdrop");
+const modalImages = modal.querySelector(".viewer-images");
+const modalTitleImg = document.getElementById("viewer-title-img");
+const modalDesc = modal.querySelector(".viewer-description");
+
+function hideModal() {
+    modal.classList.remove("active");
+    modalImages.innerHTML = "";
+    modalTitleImg.src = "";
+}
+
+document.querySelectorAll(".open-project").forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+
+        modalImages.innerHTML = "";
+
+        const titleImg = link.dataset.headingImg;
+        modalTitleImg.style.display = titleImg ? "block" : "none";
+        modalTitleImg.src = titleImg || "";
+
+        modalDesc.innerHTML = link.dataset.info || "";
+
+        const gallery = (link.dataset.gallery || "")
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean);
+
+        gallery.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.style.width = "100%";
+            img.style.marginBottom = "12px";
+            modalImages.appendChild(img);
+        });
+
+        modal.classList.add("active");
+    });
+});
+
+modalClose.addEventListener("click", hideModal);
+modalBackdrop.addEventListener("click", hideModal);
+</script>
+</body>
+</html>
