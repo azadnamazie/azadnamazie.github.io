@@ -169,6 +169,102 @@ a:hover {
 .section-start {
     margin-top: 20px;
 }
+
+/* ---------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------- */
+@media (max-width: 768px) {
+
+/* Reduce padding around the page */
+.about-wrapper {
+    padding: 0 5vw 10vh 5vw;
+    row-gap: 30px;
+}
+
+/* Stack bio text + photo vertically */
+.about-top {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 30px;
+}
+
+.about-photo {
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Make CV rows readable on narrow screens */
+.cv-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "label year"
+        "col1 col2";
+    row-gap: 6px;
+}
+
+.cv-label {
+    grid-area: label;
+    font-size: 12px;
+}
+
+.cv-year {
+    grid-area: year;
+    text-align: right;
+    font-size: 12px;
+}
+
+.cv-row > :nth-child(2) {
+    grid-area: col1;
+}
+
+.cv-row > :nth-child(3) {
+    grid-area: col2;
+}
+
+/* Span rows that originally used .cv-span */
+.cv-span {
+    grid-column: 1 / -1 !important;
+}
+
+/* Navigation tweaks */
+.nav-window {
+    padding: 8px 14px;
+}
+
+.main-nav a {
+    margin-right: 12px;
+    font-size: 14px;
+}
+}
+
+@media (max-width: 480px) {
+
+/* Even tighter layout for very small screens */
+.about-wrapper {
+    padding: 0 4vw 8vh 4vw;
+}
+
+.main-nav a {
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.cv-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "label"
+        "col1"
+        "col2"
+        "year";
+}
+
+.cv-year {
+    text-align: left;
+    margin-top: 4px;
+}
+}
+
 </style>
 </head>
 

@@ -116,6 +116,7 @@ html, body {
     bottom: 20px;
     left: 20px;
     max-width: 260px;
+    max-height: 100px;
     background: #cfcfcf;
     padding: 12px;
     border: 1px solid white;
@@ -127,6 +128,8 @@ html, body {
         4px 4px 12px rgba(0,0,0,0.4);
     font-size: 0.9rem;
     color: black;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .corner-events .events-title {
@@ -157,20 +160,128 @@ html, body {
     text-shadow: 0 0 10px #ff66ff;
 }
 
+/* --- Global scrollbar styles --- */
+/* Target the entire scrollbar */
+::-webkit-scrollbar {
+  width: 16px; /* Adjust size for the chunky retro look */
+  background-color: #C0C0C0;
+  cursor: pointer;
+}
+
+/* --- Scrollbar track (the background) --- */
+::-webkit-scrollbar-track {
+  border: 1px solid #C0C0C0;
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+  cursor: pointer;
+}
+
+/* --- Scrollbar thumb (the draggable handle) --- */
+::-webkit-scrollbar-thumb {
+  background-color: #C0C0C0;
+  border: 1px solid #C0C0C0;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  cursor: pointer;
+}
+
+/* --- Scrollbar buttons (top and bottom arrows) --- */
+::-webkit-scrollbar-button {
+  background-color: #C0C0C0;
+  height: 16px;
+  border: 1px solid #C0C0C0;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  cursor: pointer;
+}
+/* Style for when the button is pressed */
+::-webkit-scrollbar-button:active {
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+}
+
+
+
 /* ---------------------------------------------------
    RESPONSIVE
 --------------------------------------------------- */
-@media (max-width: 700px) {
-    .corner-bio {
-        font-size: 30px;
-        max-width: 70%;
-        
-    }
-    .corner-events {
-        max-width: 60%;
-        font-size: 0.85rem;
-    }
+/* ---------------------------------------------------
+   MOBILE RESPONSIVENESS — HOMEPAGE
+--------------------------------------------------- */
+@media (max-width: 900px) {
+
+/* Background behaves better on tall screens */
+body {
+    background-size: cover;
 }
+
+/* Navigation spacing */
+.nav-window {
+    padding: 8px 14px;
+}
+
+.main-nav a {
+    margin-right: 12px;
+    font-size: 15px;
+}
+}
+
+@media (max-width: 700px) {
+
+/* Corner bio text */
+.corner-bio {
+    font-size: 50px;
+    max-width: 80%;
+    right: 10px;
+    bottom: 14px;
+    line-height: 1.2;
+}
+
+/* Events panel */
+.corner-events {
+    max-width: 70%;
+    left: 10px;
+    bottom: 14px;
+    font-size: 0.85rem;
+    padding: 10px;
+}
+
+.corner-events .events-title {
+    font-size: 22px;
+}
+
+/* Prevent overlap between bio + events */
+.corner-bio,
+.corner-events {
+    position: static;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Stack them vertically */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+}
+
+@media (max-width: 480px) {
+
+/* Even smaller screens */
+.main-nav a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.corner-bio {
+    font-size: 50px;
+    max-width: 90%;
+}
+
+.corner-events {
+    max-width: 85%;
+    font-size: 0.8rem;
+}
+}
+
 </style>
 </head>
 
@@ -202,12 +313,17 @@ html, body {
 
 <!-- EVENTS (BOTTOM LEFT) -->
 <div class="corner-events">
-    <div class="events-title"><em><strong>currently + upcoming:</strong></em></div>
+    <div class="events-title"><em><strong>news</strong></em></div>
     <ul>
         <li>
-            ✦ 2026‑03‑27: "garmkhaneh: qt diy nowruz/equinox benefit"
-            <a href="https://www.eventbrite.com/e/garmkhaneh-qt-diy-nowruzequinox-benefit-tickets-1984089861185" target="_blank">
-                @ non plus ultra
+            ✦ <a href="https://www.eventbrite.com/e/garmkhaneh-qt-diy-nowruzequinox-benefit-tickets-1984089861185" target="_blank">
+                2026‑03‑27: "garm khaneh: qt diy nowruz/equinox benefit" @ non plus ultra
+            </a>
+            <br>✦ <a href="https://httpoetics.neocities.org/anthology/2026/" target="_blank">
+                2026‑03‑22: sfpc httpoetics final class showcase
+            </a>
+            <br>✦ <a href="https://httpoetics.neocities.org/anthology/2026/" target="_blank">
+                2026‑03‑21: website update
             </a>
         </li>
     </ul>

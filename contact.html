@@ -130,6 +130,88 @@ li::marker {
         0 0 15px var(--glow-cyan);
 }
 
+/* ---------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------- */
+
+/* Tablets + small laptops */
+@media (max-width: 900px) {
+    .nav-window {
+        padding: 8px 14px;
+    }
+
+    .main-nav a {
+        margin-right: 12px;
+        font-size: 16px;
+    }
+
+    .main-content {
+        font-size: 18px;
+        left: 10px;
+        width: 90%;
+    }
+
+    #pinyon {
+        font-size: 34px;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+    /* Navigation */
+    .site-header {
+        padding: 12px 0 0 12px;
+    }
+
+    .nav-window {
+        padding: 6px 10px;
+    }
+
+    .main-nav a {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+
+    /* Main content */
+    .main-content {
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    #pinyon {
+        font-size: 30px;
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    ul {
+        padding-left: 18px;
+    }
+
+    li {
+        margin-bottom: 6px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    .main-nav a {
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    #pinyon {
+        font-size: 26px;
+    }
+
+    .main-content {
+        font-size: 16px;
+    }
+}
 
 </style>
 </head>
@@ -154,7 +236,6 @@ li::marker {
         </div>
     </div>
 </header>
-
 <!-- MAIN CONTENT -->
 <div class="main-content" style="height: 80px; width: 800px">
 <p>
