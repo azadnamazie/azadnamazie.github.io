@@ -227,7 +227,7 @@ a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vh;
+    width: min(900px, 92vw);
     height: 90vh;
     max-width: 900px;
     max-height: 900px;
@@ -277,6 +277,122 @@ a:hover {
     object-fit: contain;
     margin-bottom: 24px;
 }
+
+/* ---------------------------------------------------
+   MOBILE
+--------------------------------------------------- */
+@media (max-width: 768px) {
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* Header */
+.site-header {
+    padding: 15px;
+}
+
+.nav-shell,
+.nav-window {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.main-nav a {
+    margin: 0;
+    padding: 4px 8px;
+}
+
+/* spacing */
+.portfolio-area {
+    padding: 0 18px 80px;
+    margin-top: 0;
+}
+
+.category-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.category-bar button {
+    margin: 0;
+    font-size: 14px;
+    padding: 10px 12px;
+}
+
+/* gallery */
+.thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.thumb {
+    height: 240px;
+}
+
+.thumb span {
+    opacity: 1;
+    font-size: 14px;
+}
+
+/* ---------- modal ---------- */
+
+.viewer-box {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    min-width: 0;
+    max-width: none;
+    max-height: none;
+}
+
+.viewer-inner {
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.viewer-images,
+.viewer-text {
+    width: 100%;
+    flex: none;
+    padding: 18px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.viewer-images img {
+    width: 100%;
+    display: block;
+}
+
+.viewer-title-img {
+    max-height: 55px;
+    margin-bottom: 18px;
+}
+
+.viewer-text {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.viewer-close {
+    font-size: 32px;
+    top: 8px;
+    right: 12px;
+    z-index: 10;
+}
+
+}
 </style>
 </head>
 
@@ -291,10 +407,10 @@ a:hover {
             <span class="corner c4"></span>
 
             <nav class="main-nav">
-                <a href="index.html">home</a>
-                <a href="projects.html" class="is-current">projects</a>
-                <a href="about.html">about</a>
-                <a href="contact.html">contact</a>
+                <a href="index.html">𝔥𝔬𝔪𝔢</a>
+                <a href="projects.html" class="is-current">𝔭𝔯𝔬𝔧𝔢𝔠𝔱𝔰</a>
+                <a href="about.html">𝔞𝔟𝔬𝔲𝔱</a>
+                <a href="contact.html">𝔠𝔬𝔫𝔱𝔞𝔠𝔱</a>
             </nav>
         </div>
     </div>
